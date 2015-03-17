@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=utf-8 />
+  <title></title>
+  <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.css' rel='stylesheet' />
+  <style>
+    body { margin:0; padding:0; }
+    .map { position:absolute; top:0; bottom:0; width:100%;  height: auto;}
+	.remove-container{position: absolute; top: 0; width: 10%; z-index:20;}
+	#remove{width: 200px;}
+  </style>
+</head>
+<body>
+<div id='map' class='map'> 
+<div class="remove-container">
+	<input type="submit" id="remove" value="Quitar Marcador" onclick="removeLayer()"></input>
+</div>
+</div>
+<script src="map.js"></script>
+</body>
+</html
