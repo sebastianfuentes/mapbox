@@ -8,15 +8,15 @@
   <style>
     body { margin:0; padding:0; }
     .map { position:absolute; top:0; bottom:0; width:100%;  height: auto;}
-	.remove-container{position: absolute; top: 0; width: 10%; z-index:20;}
-	#remove{width: 200px;}
+    #latitude,#longitude{position:relative;display:inline-block;margin:50px;z-index: 20;}
   </style>
 </head>
 <body>
 <div id='map' class='map'> 
-<div class="remove-container">
-	<input type="submit" id="remove" value="Quitar Marcador" onclick="removeLayer()"></input>
-</div>
+<form name="coordenadas">
+<input type="text" id='latitude' class='ui-distance' value="" placeholder="latitud" />
+<input type="text" id='longitude' class='ui-distance' value="" placeholder="lonitud" />
+</form>
 </div>
 <script src="map.js"></script>
 </body>
