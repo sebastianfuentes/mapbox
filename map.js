@@ -30,8 +30,7 @@ function loadingMap() {
               ]
             },
             "properties": {
-              "title": "Algun Lugar por ahi",
-              "marker-color": "#3BCF56",
+              "marker-color": "#3C91A7",
               "marker-size": "large",
               "marker-symbol": "rocket"
             }
@@ -66,7 +65,6 @@ function changingMap() {
               ]
             },
             "properties":{
-              "title": "Algun Lugar por ahi",
               "marker-color": "#3C91A7",
               "marker-size": "large",
               "marker-symbol": "rocket"
@@ -78,18 +76,18 @@ function changingMap() {
     markerLayer.clearLayers();
     markerLayer = L.mapbox.featureLayer().addTo(map);//we add another layer for the markers and add to the map
     markerLayer.setGeoJSON(marker);//we add the marker to the map
-    document.getElementById('latitude').value = latitude;//we add the latitude to the input latitude
-    document.getElementById('longitude').value = longitude;//we add the longitude to the input longitude
-    return markerLayer;
+    document.getElementById('id_latitude').value = latitude;//we add the latitude to the input latitude
+    document.getElementById('id_longitude').value = longitude;//we add the longitude to the input longitude
   });
 }
+
 window.onload = function () {
-  inputLat = document.getElementById('latitude').value;
-  inputLng = document.getElementById('longitude').value;
+  inputLat = document.getElementById('id_latitude').value;
+  inputLng = document.getElementById('id_longitude').value;
 
   if (inputLat === "" && inputLng === "") {
-    inputLat = 22;
-    inputLng = -101;
+    inputLat = 19.4;
+    inputLng = -99.16;
     creatingMap();
     loadingMap();
     changingMap();

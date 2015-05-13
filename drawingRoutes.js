@@ -19,17 +19,24 @@ var drawControl = new L.Control.Draw({
     marker: false
   }
 }).addTo(map);
+map.on('draw:created', showPolyline);
+map.on('draw:edited', showPolylineEdited);
 
-map.on('draw:created', showPolygonArea);
-map.on('draw:edited', showPolygonAreaEdited);
-
-function showPolygonAreaEdited(e) {
+function showPolylineEdited(e) {
   e.layers.eachLayer(function(layer) {
-    showPolygonArea({ layer: layer });
+    showPolyline({ layer: layer });
   });
 }
-function showPolygonArea(e) {
+function showPolyline(e) {
+  inputLat1 = document.getElementById('latitude-1').value;
+  inputLng1 = document.getElementById('longitude-1').value;
+  inputLat2 = document.getElementById('latitude-2').value;
+  inputLng2 = document.getElementById('longitude-2').value;
+  inputLat3 = document.getElementById('latitude-3').value;
+  inputLng3 = document.getElementById('longitude-3').value;
+  var latlngsArray = [inputLat1,inputLng1,inputLat2,inputLng2,inputLat3,inputLng3];
   featureGroup.clearLayers();
+  e.layer.addLatLng(latlngsArray);
   featureGroup.addLayer(e.layer);
   var routeArray = e.layer.getLatLngs();
   getLatLngRoute(routeArray);
@@ -39,7 +46,7 @@ function getLatLngRoute(routeArray) {
   for (var i = 0; i < routeArray.length; i++) {
     routeArrayLat = routeArray[i].lat;
     routeArrayLng = routeArray[i].lng;
-    document.getElementById('id_latitude'+i).value = routeArrayLat;
-    document.getElementById('id_longitude'+i).value = routeArrayLng;
+    // document.getElementById('id_latitude'+i).value = routeArrayLat;
+    // document.getElementById('id_longitude'+i).value = routeArrayLng;
   }
 }
